@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="csrf-token" content="{{csrfToken}}" />
+  <title>Create account — My App</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <main class="centered">
+    <section class="card">
+      <h1>Create account</h1>
+      <form id="registerForm" action="/register" method="POST" novalidate>
+        <!-- include CSRF token server-side if used -->
+        <input type="hidden" name="_csrf" value="{{csrfToken}}" />
+
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" required minlength="2" autocomplete="name" />
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required autocomplete="email" />
+
+        <label for="password">Password</label>
+        <div class="pw-row">
+          <input id="password" name="password" type="password" required minlength="8" autocomplete="new-password" />
+          <button type="button" class="pw-toggle" aria-label="Show password">Show</button>
+        </div>
+        <meter id="pwStrength" min="0" max="4" low="2" high="3" optimum="4" value="0"></meter>
+        <div id="pwHint" class="muted">Use at least 8 characters with letters and numbers.</div>
+
+        <label for="confirm">Confirm password</label>
+        <input id="confirm" name="confirm" type="password" required minlength="8" autocomplete="new-password" />
+
+        <div id="errors" role="alert" class="errors" hidden></div>
+
+        <button type="submit" class="primary">Create account</button>
+
+        <p class="muted">Already have an account? <a href="/login.html">Sign in</a></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="/js/auth.js" defer></script>
+</body>
+</html>
