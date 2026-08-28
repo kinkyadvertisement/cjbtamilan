@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tamil Nadu job and freelance opportunity registration page.">
+  <meta name="theme-color" content="#111827">
+  <title>Tamil Nadu Jobs & Freelance Opportunities</title>
+
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --text: #111827;
+      --muted: #667085;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #10b981;
+      --border: #e5e7eb;
+      --shadow: 0 20px 50px rgba(15, 23, 42, .10);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(59,130,246,.35), transparent 35%),
+        linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: #fff;
+      padding: 18px 0 88px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: -.4px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      font-weight: 700;
+      opacity: .95;
+    }
+
+    .nav .nav-btn {
+      padding: 10px 16px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 999px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 56px;
+      align-items: center;
+      padding-top: 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 64px);
+      line-height: 1.03;
+      letter-spacing: -2.5px;
+      margin: 0 0 20px;
+    }
+
+    .hero-copy {
+      color: #dbeafe;
+      font-size: 18px;
+      max-width: 650px;
+      margin: 0 0 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 20px;
+      border: 0;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #06281e;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); filter: brightness(.97); }
+
+    .btn-light {
+      background: #fff;
+      color: #0f172a;
+    }
+
+    .btn-light:hover { transform: translateY(-2px); }
+
+    .hero-card {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 24px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-card h3 { margin: 0 0 16px; font-size: 22px; }
+
+    .hero-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero-list li {
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255,255,255,.13);
+    }
+
+    .hero-list li:last-child { border-bottom: 0; }
+
+    /* Main */
+    main { margin-top: -45px; }
+
+    section { padding: 72px 0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+
+    .card h2, .card h3 { margin-top: 0; }
+
+    .muted { color: var(--muted); }
+
+    .steps {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .step {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      flex: 0 0 38px;
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: #dbeafe;
+      color: var(--primary-dark);
+      font-weight: 900;
+    }
+
+    /* Form */
+    .form-title { margin-bottom: 5px; }
+
+    form { margin-top: 22px; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field { margin-bottom: 16px; }
+
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      display: block;
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      padding: 13px 14px;
+      font: inherit;
+      background: #fff;
+      color: var(--text);
+      outline: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37,99,235,.10);
+    }
+
+    textarea { min-height: 100px; resize: vertical; }
+
+    .consent {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 4px 0 18px;
+    }
+
+    .consent input {
+      width: auto;
+      margin-top: 4px;
+    }
+
+    .form-note {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Trust / features */
+    .section-heading {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 38px;
+    }
+
+    .section-heading h2 {
+      font-size: 36px;
+      line-height: 1.1;
+      margin: 0 0 10px;
+      letter-spacing: -1px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .feature-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .feature h3 { margin: 0 0 7px; }
+
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, #111827, #1e3a8a);
+      color: #fff;
+      border-radius: 28px;
+      padding: 42px;
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .cta h2 { margin: 0 0 8px; font-size: 32px; }
+    .cta p { margin: 0; color: #cbd5e1; }
+
+    /* Footer */
+    footer {
+      padding: 38px 0 90px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      border-top: 1px solid var(--border);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    /* Floating Telegram */
+    .telegram-float {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1000;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: #229ed9;
+      color: #fff;
+      padding: 13px 17px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 900;
+      box-shadow: 0 12px 30px rgba(34,158,217,.35);
+      transition: .2s ease;
+    }
+
+    .telegram-float:hover { transform: translateY(-3px); }
+
+    @media (max-width: 850px) {
+      .hero, .grid { grid-template-columns: 1fr; }
+      .features { grid-template-columns: 1fr; }
+      .hero { gap: 30px; }
+      .cta { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 600px) {
+      header { padding-bottom: 70px; }
+      .nav .nav-btn { display: none; }
+      .form-grid { grid-template-columns: 1fr; }
+      .field.full { grid-column: auto; }
+      section { padding: 52px 0; }
+      .card { padding: 22px; }
+      .telegram-float span { display: none; }
+      .telegram-float { padding: 15px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <div class="brand">Tamil Jobs & Opportunities</div>
+        <a class="nav-btn" href="#apply">Apply Now</a>
+      </nav>
+
+      <div class="hero">
+        <div>
+          <div class="eyebrow">Tamil Nadu • Jobs • Freelance • Flexible Roles</div>
+          <h1>Find your next opportunity.</h1>
+          <p class="hero-copy">
+            Submit your details once and continue to Telegram for role information,
+            availability updates, and the next application steps.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#apply">Start Application</a>
+            <a class="btn btn-light" href="#how-it-works">How It Works</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Simple application process</h3>
+          <ul class="hero-list">
+            <li>✓ Complete the short application</li>
+            <li>✓ Review your details</li>
+            <li>✓ Continue to our Telegram contact</li>
+            <li>✓ Receive available role information</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="apply">
+      <div class="container">
+        <div class="grid">
+          <div class="card">
+            <h2>Ready to apply?</h2>
+            <p class="muted">
+              Fill in the basic information below. After submission, the page will
+              open Telegram with a pre-filled application message.
+            </p>
+
+            <div class="steps">
+              <div class="step">
+                <div class="step-num">1</div>
+                <div><strong>Enter your details</strong><br><span class="muted">Use accurate contact information.</span></div>
+              </div>
+              <div class="step">
+                <div class="step-num">2</div>
+                <div><strong>Submit the form</strong><br><span class="muted">Your application is formatted for Telegram.</span></div>
+              </div>
+              <div class="step">
+                <div class="step-num">3</div>
+                <div><strong>Continue on Telegram</strong><br><span class="muted">Send the prepared message to the contact.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h2 class="form-title">Application Form</h2>
+            <p class="muted">Takes about 1 minute.</p>
+
+            <form id="applicationForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">Full Name *</label>
+                  <input id="name" name="name" type="text" autocomplete="name" required>
+                </div>
+
+                <div class="field">
+                  <label for="age">Age *</label>
+                  <input id="age" name="age" type="number" min="18" max="100" required>
+                </div>
+
+                <div class="field">
+                  <label for="city">City / District *</label>
+                  <input id="city" name="city" type="text" placeholder="e.g. Chennai" required>
+                </div>
+
+                <div class="field">
+                  <label for="phone">Phone Number *</label>
+                  <input id="phone" name="phone" type="tel" autocomplete="tel" required>
+                </div>
+
+                <div class="field">
+                  <label for="role">Preferred Opportunity *</label>
+                  <select id="role" name="role" required>
+                    <option value="">Select one</option>
+                    <option>Part-time work</option>
+                    <option>Full-time work</option>
+                    <option>Freelance work</option>
+                    <option>Remote work</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="experience">Experience</label>
+                  <select id="experience" name="experience">
+                    <option value="">Select one</option>
+                    <option>No previous experience</option>
+                    <option>Less than 1 year</option>
+                    <option>1–3 years</option>
+                    <option>3+ years</option>
+                  </select>
+                </div>
+
+                <div class="field full">
+                  <label for="message">Additional Information</label>
+                  <textarea id="message" name="message" placeholder="Tell us briefly about your skills or availability."></textarea>
+                </div>
+              </div>
+
+              <label class="consent">
+                <input type="checkbox" id="consent" required>
+                <span>I confirm that the information provided is accurate and I agree to continue the application through Telegram.</span>
+              </label>
+
+              <button class="btn btn-primary" type="submit" style="width:100%;">
+                Continue to Telegram →
+              </button>
+
+              <p class="form-note">
+                No payment is requested by this form. Do not share passwords, OTPs,
+                bank PINs, or other sensitive credentials.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="container">
+        <div class="section-heading">
+          <h2>How the funnel works</h2>
+          <p class="muted">A clear three-step path from landing page to Telegram.</p>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">📝</div>
+            <h3>1. Apply</h3>
+            <p class="muted">Candidates complete the short form with basic information.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">✈️</div>
+            <h3>2. Telegram</h3>
+            <p class="muted">A pre-filled message makes it easy to continue the conversation.</p>
+          </div>
+
+          <div class="feature">
+            <div class="feature-icon">💼</div>
+            <h3>3. Role Details</h3>
+            <p class="muted">Share verified opportunity details, requirements, and next steps.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2>Start your application today.</h2>
+            <p>Complete the form and continue securely to Telegram.</p>
+          </div>
+          <a class="btn btn-primary" href="#apply">Apply Now</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>© 2026 Tamil Jobs & Opportunities</div>
+        <div>
+          Informational platform. Opportunities and income are not guaranteed.
+          Never pay an advance fee or share OTP/PIN information.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Replace this username with your legitimate Telegram bot/account username. -->
+  <a
+    class="telegram-float"
+    id="floatingTelegram"
+    href="https://t.me/callboyjobtamilan"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Open Telegram"
+  >
+    ✈️ <span>Telegram</span>
+  </a>
+
+  <script>
+    /*
+      TELEGRAM FUNNEL
+      ----------------
+      Replace YOUR_TELEGRAM_USERNAME below with the Telegram bot/account
+      that should receive applicants.
+
+      For a production site, it is better to send form data to your own
+      backend/Telegram Bot API rather than placing a bot token in this file.
+    */
+    const TELEGRAM_USERNAME = "@callboyjobtamilan";
+
+    const form = document.getElementById("applicationForm");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const data = new FormData(form);
+
+      const name = data.get("name").trim();
+      const age = data.get("age");
+      const city = data.get("city").trim();
+      const phone = data.get("phone").trim();
+      const role = data.get("role");
+      const experience = data.get("experience") || "Not specified";
+      const message = data.get("message").trim() || "None";
+
+      if (!name || !age || !city || !phone || !role) {
+        alert("Please complete all required fields.");
+        return;
+      }
+
+      if (Number(age) < 18) {
+        alert("Applicants must be 18 or older.");
+        return;
+      }
+
+      const telegramMessage =
+`Hello, I would like to apply for an opportunity.
+
+Name: ${name}
+Age: ${age}
+City/District: ${city}
+Phone: ${phone}
+Preferred opportunity: ${role}
+Experience: ${experience}
+Additional information: ${message}`;
+
+      const telegramUrl =
+        `https://t.me/${TELEGRAM_USERNAME}?text=${encodeURIComponent(telegramMessage)}`;
+
+      if (TELEGRAM_USERNAME === "@callboyjobtamilanbot") {
+        alert("Please replace YOUR_TELEGRAM_USERNAME in the HTML with your Telegram username before publishing.");
+        return;
+      }
+
+      window.open(telegramUrl, "_blank", "noopener,noreferrer");
+    });
+  </script>
+</body>
+</html>
